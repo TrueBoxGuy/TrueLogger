@@ -7,7 +7,6 @@ class TrueLogger {
    * constructor - Makes a new logger
    *
    * @param  {string} timestampFormat A moment timestamp format.
-   *
    */
   constructor(timestampFormat) {
     this.timestampFormat = timestampFormat;
@@ -27,7 +26,6 @@ class TrueLogger {
    * info - Logs something in the info category.
    *
    * @param  {...string} input A spread of strings that you want to log.
-   *
    */
   info(...input) {
     log("Info", this.getTimeStamp(), ...input);
@@ -38,3 +36,5 @@ class TrueLogger {
 function log(category, timestamp, ...input) {
   console.log(chalk `{grey [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`)
 }
+
+module.exports = TrueLogger;
