@@ -28,7 +28,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   info(...input) {
-    log("Info", "grey", this.getTimeStamp(), ...input);
+    log("I", "grey", this.getTimeStamp(), ...input);
   }
 
   /**
@@ -37,7 +37,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   warn(...input) {
-    log("Warn", "yellow", this.getTimeStamp(), ...input);
+    log("W", "yellow", this.getTimeStamp(), ...input);
   }
 
   /**
@@ -46,7 +46,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   error(...input) {
-    log("Error", "red", this.getTimeStamp(), ...input);
+    log("E", "red", this.getTimeStamp(), ...input);
   }
 
   /**
@@ -55,7 +55,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   debug(...input) {
-    log("Debug", "blue", this.getTimeStamp(), ...input);
+    log("D", "blue", this.getTimeStamp(), ...input);
   }
 
 
