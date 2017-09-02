@@ -32,12 +32,42 @@ class TrueLogger {
   }
 
   /**
-   * info - Logs something in the error category.
+   * warn- Logs something in the warn category.
+   *
+   * @param  {...string} input A spread of strings that you want to log.
+   */
+  warn(...input) {
+    log("Warn", "yellow", this.getTimeStamp(), ...input);
+  }
+
+  /**
+   * error - Logs something in the error category.
    *
    * @param  {...string} input A spread of strings that you want to log.
    */
   error(...input) {
     log("Error", "red", this.getTimeStamp(), ...input);
+  }
+
+  /**
+   * debug - Logs something in the debug category.
+   *
+   * @param  {...string} input A spread of strings that you want to log.
+   */
+  debug(...input) {
+    log("Debug", "blue", this.getTimeStamp(), ...input);
+  }
+
+
+  /**
+   * custom - Sends a custom log message.
+   *
+   * @param  {string} category The category of this log message.
+   * @param  {string} color    The color you want the category to show up as.
+   * @param  {...string} input A spread of strings that you want to log.
+   */
+  custom(category, color, ...input) {
+    log(category, color, this.getTimeStamp(), ...input);
   }
 
 }
