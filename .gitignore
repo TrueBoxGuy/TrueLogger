@@ -59,7 +59,3 @@ typings/
 
 #linter
 .eslintrc
-
-#local testing
-
-test.js

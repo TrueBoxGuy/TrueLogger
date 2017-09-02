@@ -63,7 +63,7 @@ class TrueLogger {
    * custom - Sends a custom log message.
    *
    * @param  {string} category The category of this log message.
-   * @param  {string} color    The color you want the category to show up as.
+   * @param  {string} color    The chalk color you want the category to show up as.
    * @param  {...string} input A spread of strings that you want to log.
    */
   custom(category, color, ...input) {
@@ -73,7 +73,14 @@ class TrueLogger {
 }
 
 function log(category, color, timestamp, ...input) {
-  console.log(chalk `{${color} [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`);
+
+  try {
+    console.log(chalk `{${color} [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`);
+  } catch (e) {
+    console.log(chalk `[${category.toUpperCase()}] {green ${timestamp}}: ${input.join(" ")}`);
+    console.log(chalk `{yellow [W]} {green ${timestamp}}: Invalid color used in custom method.`);
+  }
+
 }
 
 module.exports = TrueLogger;

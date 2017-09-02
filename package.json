@@ -1,0 +1,27 @@
+{
+  "name": "truelogger",
+  "version": "1.0.0",
+  "description": "A simple logger which has custom timestamps, custom logs and categories. It will become more advanced soon",
+  "main": "./classes/TrueLogger.js",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "chalk": "^2.1.0"
+  },
+  "scripts": {
+    "test": "node ./examples/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MinecraftBoxGuy/TrueLogger.git"
+  },
+  "keywords": [
+    "logger",
+    "timestamps"
+  ],
+  "author": "TrueBoxGuy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MinecraftBoxGuy/TrueLogger/issues"
+  },
+  "homepage": "https://github.com/MinecraftBoxGuy/TrueLogger#readme"
+}
