@@ -19,7 +19,7 @@ class TrueLogger {
    * @return {String}  The timestamp.
    */
   getTimeStamp() {
-    return moment().format(this.timestampFormat)
+    return moment().format(this.timestampFormat);
   }
 
   /**
@@ -28,13 +28,22 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   info(...input) {
-    log("Info", this.getTimeStamp(), ...input);
+    log("Info", "grey", this.getTimeStamp(), ...input);
+  }
+
+  /**
+   * info - Logs something in the error category.
+   *
+   * @param  {...string} input A spread of strings that you want to log.
+   */
+  error(...input) {
+    log("Error", "red", this.getTimeStamp(), ...input);
   }
 
 }
 
-function log(category, timestamp, ...input) {
-  console.log(chalk `{grey [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`)
+function log(category, color, timestamp, ...input) {
+  console.log(chalk `{${color} [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`);
 }
 
 module.exports = TrueLogger;
