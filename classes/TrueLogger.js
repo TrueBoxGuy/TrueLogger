@@ -28,7 +28,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   info(...input) {
-    log("I", "grey", this.getTimeStamp(), ...input);
+    log("I", "grey", this.getTimeStamp(), console.log, ...input);
   }
 
   /**
@@ -37,7 +37,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   warn(...input) {
-    log("W", "yellow", this.getTimeStamp(), ...input);
+    log("W", "yellow", this.getTimeStamp(), console.error, ...input);
   }
 
   /**
@@ -46,7 +46,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   error(...input) {
-    log("E", "red", this.getTimeStamp(), ...input);
+    log("E", "red", this.getTimeStamp(), console.error, ...input);
   }
 
   /**
@@ -55,7 +55,7 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   debug(...input) {
-    log("D", "blue", this.getTimeStamp(), ...input);
+    log("D", "blue", this.getTimeStamp(), console.log, ...input);
   }
 
 
@@ -67,18 +67,18 @@ class TrueLogger {
    * @param  {...string} input A spread of strings that you want to log.
    */
   custom(category, color, ...input) {
-    log(category, color, this.getTimeStamp(), ...input);
+    log(category, color, this.getTimeStamp(), console.log, ...input);
   }
 
 }
 
-function log(category, color, timestamp, ...input) {
+function log(category, color, timestamp, stream, ...input) {
 
   try {
-    console.log(chalk `{${color} [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`);
+    stream(chalk `{${color} [${category.toUpperCase()}]} {green ${timestamp}}: ${input.join(" ")}`);
   } catch (e) {
     console.log(chalk `[${category.toUpperCase()}] {green ${timestamp}}: ${input.join(" ")}`);
-    console.log(chalk `{yellow [W]} {green ${timestamp}}: Invalid color used in custom method.`);
+    console.error(chalk `{yellow [W]} {green ${timestamp}}: Invalid color used in custom method.`);
   }
 
 }
