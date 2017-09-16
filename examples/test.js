@@ -1,6 +1,6 @@
 const TrueLogger = require('../classes/TrueLogger');
 
-//Create a new instance with a moment format
+//Create a new instance with a moment format, see moment js.
 const trueLogger = new TrueLogger('HH:mm:ss');
 
 //different types of logs and spread operator
